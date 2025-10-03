@@ -1,26 +1,48 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link href="styles.css" rel="stylesheet"> 
+  <meta charset="UTF-8">
+  <title>Generador de Paletas</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <section class="seccion-colores">
-        <div class="1" id="cuadro1"></div>
-        <div class="2" id="cuadro2"></div>
-        <div class="3" id="cuadro3"></div>
-        <div class="4" id="cuadro4"></div>
-        <div class="5" id="cuadro5"></div>
-    </section>
-    <section>
-        <button class="btn" id="btn1">Conplementarios</button>
-        <button class="btn" id="btn2">Análogos</button>
-        <button class="btn" id="btn3">Fríos</button>
-        <button class="btn" id="btn4">Cálidos</button>
+  <div class="container">
+    <h1>🎨 Generador de Paletas</h1>
 
-    </section>
-    <script src="js.js"></script>
+    <div id="colores">
+      <div class="cuadro">
+        <div id="cuadro1" class="color-box"></div>
+        <p id="hex1" class="hex"></p>
+      </div>
+      <div class="cuadro">
+        <div id="cuadro2" class="color-box"></div>
+        <p id="hex2" class="hex"></p>
+      </div>
+      <div class="cuadro">
+        <div id="cuadro3" class="color-box"></div>
+        <p id="hex3" class="hex"></p>
+      </div>
+      <div class="cuadro">
+        <div id="cuadro4" class="color-box"></div>
+        <p id="hex4" class="hex"></p>
+      </div>
+      <div class="cuadro">
+        <div id="cuadro5" class="color-box"></div>
+        <p id="hex5" class="hex"></p>
+      </div>
+    </div>
+
+    <div id="botones">
+      <button id="btn1">Complementarios</button>
+      <button id="btn2">Análogos</button>
+      <button id="btn3">Tríada</button>
+      <button id="btn4">Tétrada</button>
+      <button id="btn5">Tonos</button>
+      <button id="btn6">Cálidos</button>
+      <button id="btn7">Fríos</button>
+    </div>
+  </div>
+
+  <script src="js.js"></script>
 </body>
 </html>
