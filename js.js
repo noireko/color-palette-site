@@ -3,74 +3,122 @@ const color2 = document.getElementById("cuadro2");
 const color3 = document.getElementById("cuadro3");
 const color4 = document.getElementById("cuadro4");
 const color5 = document.getElementById("cuadro5");
+
 const complementarios = document.getElementById("btn1");
 const analogos = document.getElementById("btn2");
-const btn3 = document.getElementById("btn3");
-const btn4 = document.getElementById("btn4");
-
-let hue;
-let saturation;
-let light;
+const triada = document.getElementById("btn3");
+const tetrada = document.getElementById("btn4");
+const tono = document.getElementById("btn5");
+const calidos = document.getElementById("btn6");
+const frios = document.getElementById("btn7");
 
 function generarColor() {
-    hue = Math.floor(Math.random() * 361);
-    saturation = Math.floor(Math.random() * (100 - 50 + 1)) + 50;
-    light = Math.floor(Math.random() * (70 - 30 + 1)) + 30;
+    return {
+        hue: Math.floor(Math.random() * 361),
+        saturation: Math.floor(Math.random() * 51) + 50,
+        light: Math.floor(Math.random() * 41) + 30
+    };
 }
 
-complementarios.addEventListener("click", function () {
-    generarColor()
-    let hue = Math.floor(Math.random() * (360 - 180 + 1)) + 180;
-    let base0 = `hsl(${hue}, ${saturation}%, ${light}%)`;
-    let clr2 = `hsl(${hue}, ${saturation - 25}%, ${light - 15}%)`;
-    let clr3 = `hsl(${hue}, ${saturation - 50}%, ${light - 30}%)`;
-    let clr4 = `hsl(${(hue + 180) % 360}, ${saturation - 25}%, ${light - 15}%)`;
-    let clr5 = `hsl(${(hue + 180) % 360}, ${saturation}%, ${light}%)`;
-    color1.style.backgroundColor = base0;
-    color2.style.backgroundColor = clr2;
-    color3.style.backgroundColor = clr3;
-    color4.style.backgroundColor = clr4;
-    color5.style.backgroundColor = clr5;
+function aplicarColores(colores) {
+    [color1, color2, color3, color4, color5].forEach((elem, i) => {
+        elem.style.backgroundColor = colores[i];
+    });
+}
+
+function clamp(value, min, max) {
+    return Math.min(Math.max(value, min), max);
+}
+
+function randomHueFromRanges(ranges) {
+    const [min, max] = ranges[Math.floor(Math.random() * ranges.length)];
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+complementarios.addEventListener("click", () => {
+    const { hue, saturation, light } = generarColor();
+    const comp = (hue + 180) % 360;
+
+    aplicarColores([
+        `hsl(${hue}, ${saturation}%, ${light}%)`,
+        `hsl(${hue}, ${clamp(saturation - 25, 0, 100)}%, ${clamp(light - 15, 0, 100)}%)`,
+        `hsl(${hue}, ${clamp(saturation - 35, 0, 100)}%, ${clamp(light - 25, 0, 100)}%)`,
+        `hsl(${comp}, ${clamp(saturation - 25, 0, 100)}%, ${clamp(light - 15, 0, 100)}%)`,
+        `hsl(${comp}, ${saturation}%, ${light}%)`
+    ]);
 });
 
+analogos.addEventListener("click", () => {
+    const { hue, saturation, light } = generarColor();
 
-analogos.addEventListener("click", function () {
-    generarColor()
-    let clr2 = `hsl(${(hue + 40) % 360}, ${saturation}%, ${light}%)`;
-    let clr3 = `hsl(${(hue + 20) % 360}, ${saturation}%, ${light}%)`;
-    let base0 = `hsl(${hue}, ${saturation}%, ${light}%)`;
-    let clr4 = `hsl(${(hue - 20) % 360}, ${saturation}%, ${light}%)`;
-    let clr5 = `hsl(${(hue - 40) % 360}, ${saturation}%, ${light}%)`;
-    color1.style.backgroundColor = clr2;
-    color2.style.backgroundColor = clr3;
-    color3.style.backgroundColor = base0;
-    color4.style.backgroundColor = clr4;
-    color5.style.backgroundColor = clr5;
+    aplicarColores([
+        `hsl(${(hue + 40) % 360}, ${saturation}%, ${light}%)`,
+        `hsl(${(hue + 20) % 360}, ${saturation}%, ${light}%)`,
+        `hsl(${hue}, ${saturation}%, ${light}%)`,
+        `hsl(${(hue - 20 + 360) % 360}, ${saturation}%, ${light}%)`,
+        `hsl(${(hue - 40 + 360) % 360}, ${saturation}%, ${light}%)`
+    ]);
 });
 
-btn3.addEventListener("click", function () {
-    generarColor()
-    let color1 = `hsl(${hue}, ${saturation}%, ${light}%)`;
-    let color2 = `hsl(${(hue + 30) % 360}, ${saturation}%, ${light}%)`;
-    let color3 = `hsl(${(hue - 30 + 360) % 360}, ${saturation}%, ${light}%)`;
-    cuadr1.style.backgroundColor = color1;
-    cuadr2.style.backgroundColor = color2;
-    cuadr3.style.backgroundColor = color3;
-    console.log(color1)
-    console.log(color2)
-    console.log(color3)
+triada.addEventListener("click", () => {
+    const { hue, saturation, light } = generarColor();
+
+    aplicarColores([
+        `hsl(${(hue + 120) % 360}, ${clamp(saturation - 30, 0, 100)}%, ${clamp(light - 15, 0, 100)}%)`,
+        `hsl(${(hue + 120) % 360}, ${saturation}%, ${light}%)`,
+        `hsl(${hue}, ${saturation}%, ${light}%)`,
+        `hsl(${(hue + 240) % 360}, ${saturation}%, ${light}%)`,
+        `hsl(${(hue + 240) % 360}, ${clamp(saturation - 30, 0, 100)}%, ${clamp(light - 15, 0, 100)}%)`
+    ]);
 });
 
-btn4.addEventListener("click", function () {
-    generarColor()
-    let color1 = `hsl(${hue}, ${saturation}%, ${light}%)`;
-    let color2 = `hsl(${(hue + 30) % 360}, ${saturation}%, ${light}%)`;
-    let color3 = `hsl(${(hue - 30 + 360) % 360}, ${saturation}%, ${light}%)`;
-    cuadr1.style.backgroundColor = color1;
-    cuadr2.style.backgroundColor = color2;
-    cuadr3.style.backgroundColor = color3;
-    console.log(color1)
-    console.log(color2)
-    console.log(color3)
+tetrada.addEventListener("click", () => {
+    const { hue, saturation, light } = generarColor();
+
+    aplicarColores([
+        `hsl(${hue}, ${saturation}%, ${light}%)`,
+        `hsl(${(hue + 90) % 360}, ${saturation}%, ${light}%)`,
+        `hsl(${(hue + 180) % 360}, ${saturation}%, ${light}%)`,
+        `hsl(${(hue + 270) % 360}, ${saturation}%, ${light}%)`,
+        `hsl(${(hue + 360) % 360}, ${clamp(saturation - 40, 0, 100)}%, ${clamp(light - 20, 0, 100)}%)`
+    ]);
 });
 
+tono.addEventListener("click", () => {
+    const { hue, saturation } = generarColor();
+    const lightBase = 80;
+
+    aplicarColores([
+        `hsl(${hue}, ${saturation}%, ${lightBase}%)`,
+        `hsl(${hue}, ${clamp(saturation - 10, 0, 100)}%, ${clamp(lightBase - 13, 0, 100)}%)`,
+        `hsl(${hue}, ${clamp(saturation - 20, 0, 100)}%, ${clamp(lightBase - 26, 0, 100)}%)`,
+        `hsl(${hue}, ${clamp(saturation + 10, 0, 100)}%, ${clamp(lightBase - 39, 0, 100)}%)`,
+        `hsl(${hue}, ${clamp(saturation + 20, 0, 100)}%, ${clamp(lightBase - 52, 0, 100)}%)`
+    ]);
+});
+
+calidos.addEventListener("click", () => {
+    const { saturation, light } = generarColor();
+    const hue = randomHueFromRanges([[0, 60], [330, 360]]);
+
+    aplicarColores([
+        `hsl(${hue}, ${saturation}%, ${light}%)`,
+        `hsl(${hue}, ${clamp(saturation - 10, 0, 100)}%, ${clamp(light - 10, 0, 100)}%)`,
+        `hsl(${hue}, ${clamp(saturation - 20, 0, 100)}%, ${clamp(light - 20, 0, 100)}%)`,
+        `hsl(${hue}, ${clamp(saturation + 10, 0, 100)}%, ${clamp(light + 10, 0, 100)}%)`,
+        `hsl(${hue}, ${clamp(saturation + 20, 0, 100)}%, ${clamp(light + 20, 0, 100)}%)`
+    ]);
+});
+
+frios.addEventListener("click", () => {
+    const { saturation, light } = generarColor();
+    const hue = randomHueFromRanges([[90, 150], [180, 240], [240, 300]]);
+
+    aplicarColores([
+        `hsl(${hue}, ${saturation}%, ${light}%)`,
+        `hsl(${hue}, ${clamp(saturation - 10, 0, 100)}%, ${clamp(light - 10, 0, 100)}%)`,
+        `hsl(${hue}, ${clamp(saturation - 20, 0, 100)}%, ${clamp(light - 20, 0, 100)}%)`,
+        `hsl(${hue}, ${clamp(saturation + 10, 0, 100)}%, ${clamp(light + 10, 0, 100)}%)`,
+        `hsl(${hue}, ${clamp(saturation + 20, 0, 100)}%, ${clamp(light + 20, 0, 100)}%)`
+    ]);
+});
