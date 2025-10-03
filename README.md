@@ -10,19 +10,19 @@ Generates colors in HSL format.
 
 Supports multiple harmony modes:
 
-✅ Complementary
+   ✅ Complementary
 
-✅ Analogous
+   ✅ Analogous
 
-✅ Triad
+   ✅ Triad
 
-✅ Tetrad
+   ✅ Tetrad
 
-✅ Tones
+   ✅ Tones
 
-✅ Warm colors
+   ✅ Warm colors
 
-✅ Cool colors
+   ✅ Cool colors
 
 Each click generates a new palette.
 
@@ -46,7 +46,7 @@ JavaScript – palette generation logic
 
 Clone the repository:
 
-git clone https://github.com/yourusername/color-palette-generator.git
+  - git clone https://github.com/yourusername/color-palette-generator.git
 
 Open the index.html file in your browser.
 
