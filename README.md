@@ -40,7 +40,7 @@ JavaScript – palette generation logic
 
 # Screenshot
 
-(Here you can add an image or GIF showing your app in action, to make the repo more attractive)
+<img width="1917" height="942" alt="image" src="https://github.com/user-attachments/assets/4e9c36d3-3ce7-4361-b296-ea3d7877001c" />
 
 # Installation & Usage
 
