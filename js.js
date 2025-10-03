@@ -67,5 +67,5 @@ btn4.addEventListener("click", function () {
     console.log(color1)
     console.log(color2)
     console.log(color3)
-});
+})
 
