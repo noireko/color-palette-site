@@ -46,7 +46,7 @@ JavaScript – palette generation logic
 
 Clone the repository:
 
-  - git clone https://github.com/yourusername/color-palette-generator.git
+  - git clone https://github.com/yourusername/color-palette-site.git
 
 Open the index.html file in your browser.
 
