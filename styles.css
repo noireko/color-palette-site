@@ -105,17 +105,17 @@ button:hover {
     }
 
     .color-box {
-        height: 120px;
-        width: 120px;
+        height: 7.5rem;
+        width: 7.5rem;
     }
 
     #botones {
-        gap: 10px;
+        gap: .625rem;
         padding: 0;
     }
 
     button {
-        padding: 12px 20px;
+        padding: .75rem 1.25rem;
         font-size: .95rem;
     }
 }
