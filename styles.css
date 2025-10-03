@@ -101,7 +101,7 @@ button:hover {
     }
 
     .container {
-        height: 0;
+        height: 100%;
         padding: 40px;
     }
 
