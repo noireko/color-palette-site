@@ -114,7 +114,7 @@ frios.addEventListener("click", () => {
     const { saturation, light } = generarColor();
     const hue = randomHueFromRanges([[90, 150], [180, 240], [240, 300]]);
 
-    aplicarColores([
+    aplicarColores(
         `hsl(${hue}, ${saturation}%, ${light}%)`,
         `hsl(${hue}, ${clamp(saturation - 10, 0, 100)}%, ${clamp(light - 10, 0, 100)}%)`,
         `hsl(${hue}, ${clamp(saturation - 20, 0, 100)}%, ${clamp(light - 20, 0, 100)}%)`,
