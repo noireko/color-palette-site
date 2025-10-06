@@ -122,3 +122,21 @@ frios.addEventListener("click", () => {
         `hsl(${hue}, ${clamp(saturation + 20, 0, 100)}%, ${clamp(light + 20, 0, 100)}%)`
     ]);
 });
+
+function copiarPortapapeles(texto) {
+    navigator.clipboard.writeText(texto).then(() => {
+        alert(`Color copiado: ${texto}`);
+    })
+    .catch(err => {
+        console.error('Error al copiar al portapapeles: ', err);
+    });
+}
+
+const cuadros = [color1, color2, color3, color4, color5];
+
+cuadros.forEach(cuadro => {
+    cuadro.addEventListener("click", function() {
+        const colorActual = this.style.backgroundColor;
+        copiarPortapapeles(colorActual);
+    });
+});
