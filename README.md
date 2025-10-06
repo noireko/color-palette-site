@@ -56,3 +56,7 @@ Done! You can now generate color palettes.
 
 This project is licensed under the MIT License.
 You’re free to use, modify, and share it.
+
+# Updates
+
+  - You can now copy the color value to the cliptboard by clicking a colored square
