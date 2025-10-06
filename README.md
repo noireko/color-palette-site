@@ -50,7 +50,7 @@ Clone the repository:
 
 Open the index.html file in your browser.
 
-Done! 🎉 You can now generate color palettes.
+Done! You can now generate color palettes.
 
 # License
 
